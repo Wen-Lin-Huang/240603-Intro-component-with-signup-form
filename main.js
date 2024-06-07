@@ -1,20 +1,27 @@
 //表單 輸入錯誤監聽
-let items = document.querySelectorAll('.info_form_items');
-let icons = document.querySelectorAll('.icon');
-let errors = document.querySelectorAll('.error');
-let forms = document.getElementById('info_form');
+let infoForm = document.getElementById('info_form');
+console.log(infoForm.nodeName);
+let content = document.querySelectorAll('.info_form_items');
+console.log(content[0].value);
+let icons = document.querySelectorAll('.error-icon');
+console.log(icons[1].className);
+let warm = document.querySelectorAll('.error-warm');
+console.log(warm[2].textContent);
 
-/*forms.addEventListener('submit',function(e) {
-    items.forEach(function(item,index) {
-        if(!item.value) {
+infoForm.addEventListener('submit',(e) => {
+    let content = document.querySelectorAll('.info_form_items');
+    let icons = document.querySelectorAll('.error-icon');
+    let warm = document.querySelectorAll('.error-warm');
+
+    for(let i = 0; i < content.length; i ++) {
+        if(content[i].value === '') {
             e.preventDefault();
-            icons[index].classList.add("show");
-            errors[index].classList.add("show");
-        } else {
-            icons[index].classList.remove("show");
-            errors[index].classList.remove("show");
+            content[i].style.borderColor = 'hsl(0, 100%, 74%)';
+            icons[i].classList.add('show');
+            warm[i].classList.add('show');
         }
-    });   
-});*/
+    }  
+});
+
 
 
